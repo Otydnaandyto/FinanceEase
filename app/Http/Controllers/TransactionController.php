@@ -24,5 +24,7 @@ class TransactionController extends Controller
 
         // Tampilkan data ke view
         return view('transactions.index', compact('incomes', 'expenses'));
+        
     }
 }
+

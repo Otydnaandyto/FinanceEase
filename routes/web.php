@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
+Route::get('/dasboard', function () {
     return view('dasboard/dasboard');
 });
 
@@ -28,4 +28,5 @@ Route::get('/pemasukan', function () {
 Route::get('/pengeluaran', function () {
     return view('pengeluaran/pengeluaran');
 });
+
 
