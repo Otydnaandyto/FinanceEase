@@ -21,8 +21,11 @@ Route::get('/home', function () {
     return view('dasboard/dasboard');
 });
 
-Route::get('/home', function () {
-    return view('dasboard/dasboard');
+Route::get('/pemasukan', function () {
+    return view('pemasukan/pemasukan');
 });
 
+Route::get('/pengeluaran', function () {
+    return view('pengeluaran/pengeluaran');
+});
 
