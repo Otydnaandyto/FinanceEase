@@ -8,23 +8,20 @@ use Illuminate\Support\Facades\DB;
 
 class TransactionController extends Controller
 {
-    public function index()
+    // app/Http/Controllers/TransactionController.php
+    public function dashboard()
     {
-        // Ambil data pemasukan
-        $incomes = DB::table('transactions')
-                    ->where('type', 'income')
-                    ->orderBy('date', 'DESC')
-                    ->get();
+        $transactions = DB::table('transactions')->orderBy('date', 'DESC')->get();
 
-        // Ambil data pengeluaran
-        $expenses = DB::table('transactions')
-                     ->where('type', 'expense')
-                     ->orderBy('date', 'DESC')
-                     ->get();
+        // Extracting data for the chart
+        $transaction_dates = $transactions->pluck('date');
+        $transaction_amounts = $transactions->pluck('amount');
 
-        // Tampilkan data ke view
-        return view('transactions.index', compact('incomes', 'expenses'));
-        
+        return view('dashboard', [
+            'transactions' => $transactions,
+            'transaction_dates' => $transaction_dates,
+            'transaction_amounts' => $transaction_amounts,
+        ]);
     }
 }
 

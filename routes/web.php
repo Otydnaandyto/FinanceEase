@@ -13,20 +13,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dasboard', function () {
-    return view('dasboard/dasboard');
+Route::get('/dashboard', function () {
+    return view('dashboard/dashboard', [
+        "title" => "dasboard"
+
+    ]);
 });
 
 Route::get('/pemasukan', function () {
-    return view('pemasukan/pemasukan');
+    return view('pemasukan/pemasukan', [
+        "title" => "pemasukan"
+    ]);
 });
 
 Route::get('/pengeluaran', function () {
-    return view('pengeluaran/pengeluaran');
+    return view('pengeluaran/pengeluaran', [
+        "title" => "pengeluaran"
+    ]);
 });
 
 
